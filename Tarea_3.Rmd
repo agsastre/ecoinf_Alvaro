@@ -29,7 +29,7 @@ library(FloraIberica)
 
 ## Presencia de táxones y endemismos
 
-Permite comprobar si algún taxón está presente en la península Ibérica con el siguiente código. Pongamos como ejemplo al melojo (*Quercus pyrenaica*):
+Permite comprobar si algún taxón está presente en la península Ibérica con el siguiente código. Pongamos como ejemplo al espino negro (*Rhamnus oleoides*):
 
 ```{r presencia}
 is_present(genus = "Rhamnus", species = c("oleoides"))
@@ -43,7 +43,7 @@ Para comprobar si existen taxones endémicos usamos el código:
 is_endemic(genus = "Rhamnus", species = "lycioides")
 ```
 
-Donde R de la misma forma devuelve vectores de tipo lógico.
+Donde R de la misma forma devuelve vectores de tipo lógico. En este caso se trata de una especie endémica.
 
 ## Mapas de distribución
 
