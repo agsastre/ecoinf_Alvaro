@@ -32,7 +32,7 @@ library(FloraIberica)
 Permite comprobar si algún taxón está presente en la península Ibérica con el siguiente código. Pongamos como ejemplo al melojo (*Quercus pyrenaica*):
 
 ```{r presencia}
-is_present(genus = "Quercus", species = c("pyrenaica"))
+is_present(genus = "Rhamnus", species = c("oleoides"))
 ```
 
 R devuelve un vector de tipo lógico, en el que `TRUE` indica que la especie sí está presente mientras que `FALSE` indicaría lo contrario.
@@ -40,7 +40,7 @@ R devuelve un vector de tipo lógico, en el que `TRUE` indica que la especie sí
 Para comprobar si existen taxones endémicos usamos el código:
 
 ```{r endemicos}
-is_endemic(genus = "Quercus", species = "pyrenaica")
+is_endemic(genus = "Rhamnus", species = "lycioides")
 ```
 
 Donde R de la misma forma devuelve vectores de tipo lógico.
@@ -48,14 +48,20 @@ Donde R de la misma forma devuelve vectores de tipo lógico.
 ## Mapas de distribución
 
 ```{r distribucion, eval=FALSE}
-map_distribution(genus = "Quercus", species = "pyrenaica", size = 0.9)
+map_distribution(genus = "Rhamnus", species = "saxatilis", size = 0.9)
 ```
 
 Nos ofrece un mapa de distribución a nivel de la península ibérica de un táxon determinado. También podemos hacer un mapa con más de un táxon/especie:
 
 ```{r mapa, eval=FALSE}
-quercus <- get_distribution("Quercus")
+quercus <- get_distribution("Rhamnus")
 map_distribution(quercus)
 ```
 
 ![Mapa con todas las especies de *Quercus* de la península ibérica.](quercus.png)
+
+```{r mapas, eval=FALSE}
+library(ggplot2)
+map_distribution(genus = "Rhamnus", facet = TRUE, ncol = 4) + 
+  theme(axis.text = element_text(size = 10))
+```
