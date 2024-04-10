@@ -1,0 +1,59 @@
+---
+title: "Flora Iberica en R"
+author: "Álvaro González Sastre"
+date: "2024-01-25"
+output:
+  word_document:
+    toc: true
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# El paquete de "FloraIberica"
+
+Está basado en la base de datos "AFLIBER" (Atlas of the vascular flora of the Iberian Peninsula biodiversity hotspot) desarrolado por Rámos-Guitiérrez [-@ramos-gutierrez2021]. Posteriormente Rodríguez-Sánchez [-@rodríguez-sánchez2023] creó un [paquete](https://pakillo.github.io/FloraIberica/) en R que facilita el acceso a información taxonómica y corológica de los cerca de 6500 taxones presentes en la península Ibérica.
+
+## Instalación
+
+```{r instalacion}
+#remotes::install_github("Pakillo/FloraIberica")
+library(FloraIberica)
+```
+
+# Funciones
+
+## Presencia de táxones y endemismos
+
+Permite comprobar si algún taxón está presente en la península Ibérica con el siguiente código. Pongamos como ejemplo al melojo (*Quercus pyrenaica*):
+
+```{r presencia}
+is_present(genus = "Quercus", species = c("pyrenaica"))
+```
+
+R devuelve un vector de tipo lógico, en el que `TRUE` indica que la especie sí está presente mientras que `FALSE` indicaría lo contrario.
+
+Para comprobar si existen taxones endémicos usamos el código:
+
+```{r endemicos}
+is_endemic(genus = "Quercus", species = "pyrenaica")
+```
+
+Donde R de la misma forma devuelve vectores de tipo lógico.
+
+## Mapas de distribución
+
+```{r distribucion, eval=FALSE}
+map_distribution(genus = "Quercus", species = "pyrenaica", size = 0.9)
+```
+
+Nos ofrece un mapa de distribución a nivel de la península ibérica de un táxon determinado. También podemos hacer un mapa con más de un táxon/especie:
+
+```{r mapa, eval=FALSE}
+quercus <- get_distribution("Quercus")
+map_distribution(quercus)
+```
+
+![Mapa con todas las especies de *Quercus* de la península ibérica.](quercus.png)
