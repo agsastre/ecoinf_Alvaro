@@ -51,17 +51,20 @@ Donde R de la misma forma devuelve vectores de tipo lógico. En este caso se tra
 map_distribution(genus = "Rhamnus", species = "saxatilis", size = 0.9)
 ```
 
+![Mapa de la especie *Rhamnus saxatilis*.](saxatilis.png)
+
 Nos ofrece un mapa de distribución a nivel de la península ibérica de un táxon determinado. También podemos hacer un mapa con más de un táxon/especie:
 
 ```{r mapa, eval=FALSE}
-quercus <- get_distribution("Rhamnus")
-map_distribution(quercus)
+rhamnus <- get_distribution("Rhamnus")
+map_distribution(rhamnus)
 ```
 
-![Mapa con todas las especies de *Quercus* de la península ibérica.](quercus.png)
+![Mapa con todas las especies de *Rhamnus* de la península ibérica.](rhamnus_j.png)
 
 ```{r mapas, eval=FALSE}
 library(ggplot2)
 map_distribution(genus = "Rhamnus", facet = TRUE, ncol = 4) + 
   theme(axis.text = element_text(size = 10))
 ```
+![Mapas individuales con todas las especies de *Rhamnus* de la península ibérica.](rhamnus_s.png)
