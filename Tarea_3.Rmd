@@ -1,10 +1,12 @@
 ---
-title: "Flora Iberica en R"
+title: "Tarea_3"
 author: "Álvaro González Sastre"
-date: "2024-01-25"
+date: "2024-04-10"
 output:
   word_document:
     toc: true
+    number_sections: true
+    fig_caption: true
 bibliography: references.bib
 ---
 
