@@ -68,3 +68,4 @@ map_distribution(genus = "Rhamnus", facet = TRUE, ncol = 4) +
   theme(axis.text = element_text(size = 10))
 ```
 ![Mapas individuales con todas las especies de *Rhamnus* de la península ibérica.](rhamnus_s.png)
+# Bibliografía
